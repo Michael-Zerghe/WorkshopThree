@@ -1,21 +1,8 @@
-# **Workshop THREE JS**
+# Workshop-ThreeJS
 
-## Welcome to our workshop in the 3D world.
+In this repository you'll find the basics elements to create a Three.js' project.
 
-Offered by
-
-- Corduant Patricia (Patgit-design)
-- Jazzon Laurent
-- Michael Zerghe
-
-1. Discover THREE
-2. Live Demo
-3. Let's try yourself !
-4. Exercice over a cube
-5. Be creative ... draw in 3D !
-
-Clone this repository.
-In the branch named "get started" you''ll find the necessary files to begin and understand THREE.
+Let's play with 3D now ...
 
 Here you have links to help you:
 
@@ -23,6 +10,7 @@ Here you have links to help you:
 
 [Official ThreeJS/doc](https://threejs.org/docs/)
 
-We are going to push the examples files during the workshop ... don't worry !
 
-Have a fun moment with THREE.
+
+
+
