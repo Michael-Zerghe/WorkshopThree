@@ -1,5 +1,5 @@
-// import * as THREE from 'https://cdn.skypack.dev/three@0.130.1';
-//import { OrbitControls } from 'https://threejsfundamentals.org/threejs/resources/threejs/r127/examples/jsm/controls/OrbitControls.js';
+//  import * as THREE from 'https://cdn.skypack.dev/three@0.130.1';
+// import { OrbitControls } from 'https://threejsfundamentals.org/threejs/resources/threejs/r127/examples/jsm/controls/OrbitControls.js';
 
 let cam, scene, renderer, controls;
 const meshArray = [];
@@ -50,7 +50,7 @@ const animate = () => {
 
 }
 
-const loop = () =>{
+const moveCube = () =>{
     renderer.setAnimationLoop(function(){
         for(let el of meshArray){
             if (el.position.x<=0){
@@ -83,8 +83,5 @@ check();
 animate();
 
 document.getElementById('button').addEventListener('click',() =>{
-    if(active = true){
-        loop();
-        active = false;
-    }
+        moveCube();
 })
