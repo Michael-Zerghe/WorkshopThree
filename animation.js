@@ -3,15 +3,19 @@
 
 let cam, scene, renderer, controls;
 const meshArray = [];
-let x = [];
-let y = [];
-let z = [];
+
+
+
 const check = () => {    
     
     cam = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.01, 20);
     cam.position.set(1, 4, 8);
+
+
     scene = new THREE.Scene();
     cam.lookAt(scene.position);
+
+
     const geo = new THREE.BoxGeometry();
     const mat = new THREE.MeshNormalMaterial();
     const cube = 6;
@@ -23,13 +27,22 @@ const check = () => {
         mesh.position.z = Math.sin(pos) * 3;
         scene.add(mesh);
         meshArray.push(mesh);
-        x.push(mesh.position.x);
-        y.push(mesh.position.y);
-        z.push(mesh.position.z);
     }
+
+
     renderer = new THREE.WebGLRenderer({antialias: true});
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
+
+
+    window.addEventListener('resize',() =>{
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        cam.aspect = window.innerWidth/window.innerHeight;
+
+        cam.updateProjectionMatrix();
+    })
+
+
 
     const controls = new THREE.OrbitControls( cam, renderer.domElement );
     controls.enableDamping = true;
@@ -37,18 +50,21 @@ const check = () => {
     controls.autoRotate = true;
     controls.autoRotateSpeed = 0.2;
 
-    return x,y,z;
+
+
 }
 const animate = () => {
     requestAnimationFrame(animate);
     for (let el of meshArray ) {
-        el.rotation.z += 0.004;
+        el.rotation.y += 0.004;
         el.rotation.x -= 0.004;
     }
 
     renderer.render(scene, cam);
 
 }
+
+
 
 const moveCube = () =>{
     renderer.setAnimationLoop(function(){
@@ -79,8 +95,11 @@ const moveCube = () =>{
     renderer.render(scene,cam);
 }
 
+
+
 check();
 animate();
+
 
 document.getElementById('button').addEventListener('click',() =>{
         moveCube();
